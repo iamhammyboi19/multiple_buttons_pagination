@@ -1,6 +1,8 @@
 # MULTIPLE BUTTON PAGINATION
 
-![Alt Text](https://raw.githubusercontent.com/iamhammyboi19/multiple_buttons_pagination/master/public/pagination-1.png)
+![Alt Text](https://raw.githubusercontent.com/iamhammyboi19/multiple_buttons_pagination/master/assets/pagination-1.png)
+
+![Alt Text](https://raw.githubusercontent.com/iamhammyboi19/multiple_buttons_pagination/master/assets/pagination.gif)
 
 **This explains the logic behind the file `(./src/utils/pagination.js)` that generates an array which I use to render my multiple pagination buttons in the frontend as show in the image above**
 
@@ -9,9 +11,10 @@
 #### Now let me explain what is happening. RUN THIS CODE TEST IT AND READ THIS TO FOLLOW UP TO TEST RUN. CHANGE THE CONDITIONS TO CONFIRM IT WILL WORK DIFFERENTLY TO UNDERSTAND ESPECIALLY THE RANGE PART
 
 > [!NOTE]
-> The data used for pagination is from mockaroo.com and it is in `(./src/utils/MOCK_DATA.json)`
-> The function in `(./src/utils/pagination.js)` only takes the `current_page` and `total_page` arguments
-> The function is just about filling up the array based on the conditions met, after reading each line check the code to understand
+>
+> - The data used for pagination is from mockaroo.com and it is in `(./src/utils/MOCK_DATA.json)`
+> - The function in `(./src/utils/pagination.js)` only takes the `current_page` and `total_page` arguments
+> - The function is just about filling up the array based on the conditions met, after reading each line check the code to understand
 
 - Define a `RANGE` variable this mean how many numbers you want to show before and after the `current_page`
   `RANGE = 2`
@@ -45,7 +48,7 @@ if current page is 4 ie it is between 2 and 4 which is Max(2, 4) pick 4
 if current page is 5 ie it is between 2 and 5 which is Max(2, 5) pick 5
 ```
 
-![Alt Text](https://raw.githubusercontent.com/iamhammyboi19/multiple_buttons_pagination/master/public/pagination-2.png)
+![Alt Text](https://raw.githubusercontent.com/iamhammyboi19/multiple_buttons_pagination/master/assets/pagination-2.png)
 
 so if I start the for loop from any `current_page > 2 eg lets say current_page=5` check image above I won't have any chance to navigate back to 3 and 4 like I can do in the first picture on line 3
 
@@ -59,9 +62,10 @@ Now this proves the `RANGE` works as explained in line 16 just a number that dec
 - Finally if total_page is greater than 1 add it as the array last element
 
 > [!NOTE]
-> The goal here is adding elements to an array based on 5 conditions and hopefully this doesn't confuse you further
-> The most important thing here is add 1 to the array by default
-> Start skipping "..." numbers closest to 1 after the current page is more than page 4 (this is also because the for loop starts skipping numbers greater 2 whenever the current page is 5) so show this with "..."
-> Now show the middle numbers this numbers mean two numbers before and current numbers ie (the RANGE which user can paginate before and after the current page)
-> Now skip the last page numbers as long as the current_page is less than the last 3 numbers
-> Then finally add the total_page number to the array as last and final pagination number this one too is needed just like the very first number (1)
+>
+> - The goal here is adding elements to an array based on 5 conditions and hopefully this doesn't confuse you further
+> - The most important thing here is add 1 to the array by default
+> - Start skipping "..." numbers closest to 1 after the current page is more than page 4 (this is also because the for loop starts skipping numbers greater 2 whenever the current page is 5) so show this with "..."
+> - Now show the middle numbers this numbers mean two numbers before and current numbers ie (the RANGE which user can paginate before and after the current page)
+> - Now skip the last page numbers as long as the current_page is less than the last 3 numbers
+> - Then finally add the total_page number to the array as last and final pagination number this one too is needed just like the very first number (1)
